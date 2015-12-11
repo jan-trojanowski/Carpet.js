@@ -296,6 +296,26 @@
       },
 
       /**
+       * Introduces module communication
+       * by loading exported methods and data to another module
+       *
+       * @example
+       *
+       * // In moduleA
+       * var moduleB = Carpet.require('moduleB');
+       * moduleB.method();
+       *
+       * @memberOf Carpet
+       * @method require
+       *
+       */
+      require : function (module) {
+        if (carpetModules[module]) {
+          return carpetModules[module].methods;
+        }
+      },
+
+      /**
        * Loads the modules if found in DOM ([data-module="myModule"])
        * It will automatically fire the `init` method if found inside the module
        *
